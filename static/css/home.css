@@ -1,0 +1,28 @@
+.post {
+    padding: 0 0 4rem;
+
+
+}
+@media screen and (min-width: 500px) {
+    .post {
+    /*padding: 0 0 4rem;*/
+
+    border-radius: 1rem;
+    /*padding: 1em;*/
+    margin: 0 0.1rem 3rem;
+    box-shadow: 5px 5px 5px #ddd;
+}
+
+}
+
+.post h2 {
+    padding: 0 0 0 1rem;
+}
+.post h3 {
+    font-size: 1rem;
+    padding: 0 0 0 1.5rem;
+}
+.post p {
+    padding: 0.5rem 1rem;
+}
+

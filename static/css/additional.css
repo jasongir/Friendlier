@@ -1,0 +1,46 @@
+.main-h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 0 0 2rem;
+}
+
+.picture {
+    width: 60vw;
+    height: auto;
+}
+
+
+@media screen and (max-width: 400px) {
+    .picture {
+        width: 100vw;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .post-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .picture {
+        width: 30vw;
+        height: auto;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .post-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .picture {
+        width: 20vw;
+        height: auto;
+    }
+}
+
+.post {
+    border-radius: 1rem;
+    padding: 1em;
+    margin: 0 0 2rem;
+    box-shadow: 5px 5px 5px #ddd;
+}

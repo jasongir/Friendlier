@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Friendlier {% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base_styles.css'%}">
+    {% block styles %} {% endblock styles %}
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href={% url 'home' %}>😃 Friendlier</a></li>
+        {% if user.is_authenticated %}
+            <li><a href={% url 'user-detail' user.id %}>✋ My Posts</a></li>
+            <li><a href={% url 'logout' %}?next={% url 'home' %}>🔓 Log out</a></li>
+        {% else  %}
+            <li><a href="{% url 'login' %}">🔑 Login</a></li>
+            <li><a href="{% url 'signup' %}">✍️ Sign up</a></li>
+        {% endif %}
+        <li><a href={% if user.is_authenticated %}"{% url 'create-post' %}"{% else %}"{% url 'login' %}" {% endif%}>🗒️ New Post</a></li>
+
+
+    </ul>
+</nav>
+<main>
+    {% block content %}
+
+    {% endblock content%}
+</main>
+<footer>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/additional.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+{% endblock styles %}
+
+{% block content %}
+<div>
+     <h1 class="main-h1">Home</h1>
+     <section class="post-list">
+    {% for post in object_list %}
+        <div class="post">
+            <h2>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <h3>
+                <a href="{% url 'user-detail' post.owner.id %}">
+                    by {{ post.owner}}
+                </a>
+            </h3>
+            <p>{{ post.description }}</p>
+            {% if post.picture %}
+                <div class="picture-container">
+                    <a href="{{ post.get_absolute_url }}">
+                        <img class="picture" src="{{ post.picture.url }}" alt="{{ post.title }}">
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+    {% empty  %}
+        <p>No posts yet...</p>
+    {% endfor %}
+     </section>
+</div>
+
+{% endblock %}
+
+{# https://learndjango.com/tutorials/django-file-and-image-uploads-tutorial #}
